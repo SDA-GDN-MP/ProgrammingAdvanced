@@ -13,7 +13,8 @@ import java.nio.file.Paths;
  * Time: 17:28
  */
 public class WindowApplication {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         System.out.println("Application started");
         JFrame window = new JFrame("SDA swing");
         window.setSize(300,300);
