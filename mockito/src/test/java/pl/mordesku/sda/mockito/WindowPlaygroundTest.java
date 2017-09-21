@@ -17,7 +17,7 @@ import static org.mockito.Mockito.verify;
 public class WindowPlaygroundTest {
     WindowPlayground playground = new WindowPlayground();
     @Test
-    public void shouldSetWindowVisibilty()
+    public void shouldSetWindowVisibility()
     {
         //given
         JFrame jFrame = new JFrame();
