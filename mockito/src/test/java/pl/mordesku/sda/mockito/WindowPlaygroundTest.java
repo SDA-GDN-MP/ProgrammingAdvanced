@@ -1,11 +1,12 @@
 package pl.mordesku.sda.mockito;
 
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import javax.swing.*;
 
-import static junit.framework.TestCase.assertEquals;
-import static org.mockito.Mockito.verify;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * Created with notepad.exe.
@@ -20,11 +21,22 @@ public class WindowPlaygroundTest {
     public void shouldSetWindowVisibility()
     {
         //given
-        JFrame jFrame = new JFrame();
+        JFrame jFrame = Mockito.mock(JFrame.class);
         //when
         playground.showWindow(jFrame);
         //then
-        assertEquals(true, jFrame.isVisible());
-        verify(jFrame).setVisible(true);
+        Mockito.verify(jFrame).setVisible(true);
+        Mockito.verify(jFrame, Mockito.never()).setVisible(false);
+    }
+
+    @Test
+    public void shouldAssertThat()
+    {
+        //given
+        String test = "janausz123456";
+        //when
+
+        //then
+        assertThat(test, containsString("mateusz"));
     }
 }
